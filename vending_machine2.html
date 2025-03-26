@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Sari Treasures - Touch to Begin</title>
+    <meta name="viewport" content="width=device-width, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="vending_machine2.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.1.4/css/boxicons.min.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <header>
+            <div class="logo">Sari Treasures</div>
+            <div class="header-actions">
+                <span onclick="showHelp()">Help</span>
+                <span onclick="switchLanguage()">Language</span>
+            </div>
+        </header>
+        <div class="sidebar">
+            <div class="profile">
+                <img id="profile-pic" src="default.jpg" alt="Profile Picture">
+                <p id="username">Welcome, User</p>
+            </div>
+
+            <div class="menu-container">
+                <button id="menu-btn">
+                    <i class="bx bx-menu"></i>
+                </button>
+            </div>
+
+            <ul id="menu-list">
+                <li><a href="home.html">🏠 Home</a></li>
+                <li><a href="vending_machine2.html">📁 Order Menu</a></li>
+                <li><a href="#">⚙️ Settings</a></li>
+            </ul>
+        </div>
+
+        <div class="main-content">
+            <div class="category-nav">
+                <button class="category-btn active">All Saris</button>
+                <button class="category-btn">Silk</button>
+                <button class="category-btn">Cotton</button>
+                <button class="category-btn">Wedding</button>
+                <button class="category-btn">Festive</button>
+                <button class="category-btn">Casual</button>
+                <button class="category-btn">Accessories</button>
+            </div>
+            <div class="products-grid">
+                <div class="product-card" data-id="1" data-name="Banarasi Silk Sari" data-price="5999" onclick="toggleProductSelection(this)">
+                    <div class="product-image" style="background-color: #fadce6;"></div>
+                    <div class="product-info">
+                        <div class="product-name">Banarasi Silk Sari</div>
+                        <div class="product-price">₹5,999</div>
+                    </div>
+                    <div class="quantity-control">
+                        <div class="quantity-label">Select Quantity:</div>
+                        <div class="quantity-buttons">
+                            <div class="quantity-btn" onclick="changeQuantity(1, -1); event.stopPropagation();">-</div>
+                            <div class="quantity-value" id="qty-1">1</div>
+                            <div class="quantity-btn" onclick="changeQuantity(1, 1); event.stopPropagation();">+</div>
+                        </div>
+                        <button class="add-cart-btn" onclick="addToCart(1); event.stopPropagation();">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="product-card" data-id="2" data-name="Cotton Handloom Sari" data-price="2499" onclick="toggleProductSelection(this)">
+                    <div class="product-image" style="background-color: #e6facf;"></div>
+                    <div class="product-info">
+                        <div class="product-name">Cotton Handloom Sari</div>
+                        <div class="product-price">₹2,499</div>
+                    </div>
+                    <div class="quantity-control">
+                        <div class="quantity-label">Select Quantity:</div>
+                        <div class="quantity-buttons">
+                            <div class="quantity-btn" onclick="changeQuantity(2, -1); event.stopPropagation();">-</div>
+                            <div class="quantity-value" id="qty-2">1</div>
+                            <div class="quantity-btn" onclick="changeQuantity(2, 1); event.stopPropagation();">+</div>
+                        </div>
+                        <button class="add-cart-btn" onclick="addToCart(2); event.stopPropagation();">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="product-card" data-id="3" data-name="Embroidered Georgette Sari" data-price="3799" onclick="toggleProductSelection(this)">
+                    <div class="product-image" style="background-color: #cff3fa;"></div>
+                    <div class="product-info">
+                        <div class="product-name">Embroidered Georgette Sari</div>
+                        <div class="product-price">₹3,799</div>
+                    </div>
+                    <div class="quantity-control">
+                        <div class="quantity-label">Select Quantity:</div>
+                        <div class="quantity-buttons">
+                            <div class="quantity-btn" onclick="changeQuantity(3, -1); event.stopPropagation();">-</div>
+                            <div class="quantity-value" id="qty-3">1</div>
+                            <div class="quantity-btn" onclick="changeQuantity(3, 1); event.stopPropagation();">+</div>
+                        </div>
+                        <button class="add-cart-btn" onclick="addToCart(3); event.stopPropagation();">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="product-card" data-id="4" data-name="Kanjivaram Silk Sari" data-price="8999" onclick="toggleProductSelection(this)">
+                    <div class="product-image" style="background-color: #f9e4cf;"></div>
+                    <div class="product-info">
+                        <div class="product-name">Kanjivaram Silk Sari</div>
+                        <div class="product-price">₹8,999</div>
+                    </div>
+                    <div class="quantity-control">
+                        <div class="quantity-label">Select Quantity:</div>
+                        <div class="quantity-buttons">
+                            <div class="quantity-btn" onclick="changeQuantity(4, -1); event.stopPropagation();">-</div>
+                            <div class="quantity-value" id="qty-4">1</div>
+                            <div class="quantity-btn" onclick="changeQuantity(4, 1); event.stopPropagation();">+</div>
+                        </div>
+                        <button class="add-cart-btn" onclick="addToCart(4); event.stopPropagation();">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="product-card" data-id="5" data-name="Linen Sari with Blouse" data-price="3299" onclick="toggleProductSelection(this)">
+                    <div class="product-image" style="background-color: #e0cff9;"></div>
+                    <div class="product-info">
+                        <div class="product-name">Linen Sari with Blouse</div>
+                        <div class="product-price">₹3,299</div>
+                    </div>
+                    <div class="quantity-control">
+                        <div class="quantity-label">Select Quantity:</div>
+                        <div class="quantity-buttons">
+                            <div class="quantity-btn" onclick="changeQuantity(5, -1); event.stopPropagation();">-</div>
+                            <div class="quantity-value" id="qty-5">1</div>
+                            <div class="quantity-btn" onclick="changeQuantity(5, 1); event.stopPropagation();">+</div>
+                        </div>
+                        <button class="add-cart-btn" onclick="addToCart(5); event.stopPropagation();">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="product-card" data-id="6" data-name="Tussar Silk Sari" data-price="4299" onclick="toggleProductSelection(this)">
+                    <div class="product-image" style="background-color: #f9cfcf;"></div>
+                    <div class="product-info">
+                        <div class="product-name">Tussar Silk Sari</div>
+                        <div class="product-price">₹4,299</div>
+                    </div>
+                    <div class="quantity-control">
+                        <div class="quantity-label">Select Quantity:</div>
+                        <div class="quantity-buttons">
+                            <div class="quantity-btn" onclick="changeQuantity(6, -1); event.stopPropagation();">-</div>
+                            <div class="quantity-value" id="qty-6">1</div>
+                            <div class="quantity-btn" onclick="changeQuantity(6, 1); event.stopPropagation();">+</div>
+                        </div>
+                        <button class="add-cart-btn" onclick="addToCart(6); event.stopPropagation();">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="cart-summary">
+            <div class="cart-items">Cart: 0 items | ₹0</div>
+            <button class="checkout-btn" onclick="checkout()">Checkout</button>
+        </div>
+    </div>
+    <script src="vending_machine2.js"></script>
+</body>
+
+</html>
