@@ -1,0 +1,129 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    background: white;
+    display: flex;
+}
+
+.sidebar {
+    background: #6d2e46;
+    color: white;
+    width: 60px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: fixed;
+    left: 0;
+    top: 0;
+    padding-top: 20px;
+    overflow: hidden;
+    transition: width 0.3s ease-in-out;
+}
+
+.sidebar:hover {
+    width: 250px;
+}
+
+.profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 20px;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.sidebar:hover .profile {
+    opacity: 1;
+}
+
+.profile img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid white;
+    margin-bottom: 10px;
+}
+
+.menu-container {
+    width: 100%;
+    text-align: center;
+    margin-top: 10px;
+}
+
+#menu-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 30px;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    transition: background 0.3s;
+}
+
+#menu-list {
+    background: #f0f0f0;
+    border-radius: 5px;
+    list-style: none;
+    padding: 10px 0;
+    width: 100%;
+    text-align: left;
+    display: none;
+    position: absolute;
+    top: 100px;
+    left: 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.sidebar:hover #menu-list {
+    display: block;
+}
+
+#menu-list li {
+    padding: 10px;
+}
+
+#menu-list li a {
+    text-decoration: none;
+    color: black;
+    display: block;
+}
+
+#menu-list li:hover {
+    background: #d9d9d9;
+}
+
+#logout-btn {
+    background: red;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    position: fixed;
+    top: 15px;
+    right: 20px;
+    font-size: 14px;
+}
+
+main {
+    margin-left: 60px;
+    padding: 20px;
+    flex-grow: 1;
+    width: calc(100% - 60px);
+    transition: margin-left 0.3s ease-in-out;
+}
+
+.sidebar:hover~main {
+    margin-left: 250px;
+    width: calc(100% - 250px);
+}
